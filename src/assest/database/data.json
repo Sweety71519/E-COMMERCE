@@ -1,0 +1,116 @@
+{
+  "maincategory": [
+    {
+      "id": 0
+    },
+    {
+      "name": "Kids",
+      "id": 1
+    },
+    {
+      "name": "Female",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "name": "Male"
+    }
+  ],
+  "subcategory": [
+    {
+      "id": 0
+    },
+    {
+      "id": 1,
+      "name": "Shirt"
+    },
+    {
+      "id": 2,
+      "name": "Trouser"
+    },
+    {
+      "name": "Jeans",
+      "id": 3
+    },
+    {
+      "name": "Tshirt",
+      "id": 4
+    }
+  ],
+  "brand": [
+    {
+      "id": 0
+    },
+    {
+      "name": "Puma",
+      "id": 1
+    },
+    {
+      "name": "Adidas",
+      "id": 2
+    },
+    {
+      "name": "Tommy Hilfiger",
+      "id": 3
+    },
+    {
+      "name": "Layera",
+      "id": 4
+    },
+    {
+      "name": "Zara",
+      "id": 5
+    },
+    {
+      "name": "Gucci",
+      "id": 6
+    },
+    {
+      "name": "Nike",
+      "id": 7
+    },
+    {
+      "name": "Polo",
+      "id": 8
+    },
+    {
+      "name": "Mufti",
+      "id": 9
+    }
+  ],
+  "product": [
+    {
+      "id": 0
+    }
+  ],
+  "cart": [
+    {
+      "id": 0
+    }
+  ],
+  "wishlist": [
+    {
+      "id": 0
+    }
+  ],
+  "checkout": [
+    {
+      "id": 0
+    }
+  ],
+  "newsletter": [
+    {
+      "id": 0
+    }
+  ],
+  "contact": [
+    {
+      "id": 0
+    }
+  ],
+  "user": [
+    {
+      "id": 0
+    }
+  ]
+}
