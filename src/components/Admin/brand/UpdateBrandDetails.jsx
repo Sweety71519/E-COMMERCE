@@ -11,7 +11,6 @@ export default function UpdateBrandDetails() {
     let allStateData = useSelector((state) => state.BrandStateData)
 
 
-    console.log("allStateData",allStateData);
 
     function getInputData(e) {
         setName(e.target.value)
@@ -32,7 +31,6 @@ export default function UpdateBrandDetails() {
         dispatch(getBrand())
         if(allStateData.length){
             let item=allStateData.find((item)=>item.id===Number(id))
-            console.log("item----2",item);
             if(item)
             setName(item.name)
         }

@@ -11,7 +11,7 @@ export default function AddBrand() {
     //let allStateData=useSelector((state)=>state.BrandStateData)
     let allStateData = useSelector((state) => state.BrandStateData)
 
-    console.log("allStateData",allStateData);
+
 
     function getInputData(e) {
         name.current=e.target.value
@@ -20,7 +20,6 @@ export default function AddBrand() {
         e.preventDefault()
         
         let item=allStateData.slice(1).find((item)=>item.name==name.current)
-        console.log("item",item);
         if(item)
         alert("Brand Already Exist!!!")
         else{

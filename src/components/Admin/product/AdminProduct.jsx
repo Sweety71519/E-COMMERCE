@@ -13,7 +13,6 @@ export default function AdminProduct() {
 
   function getAPIData() {
     dispatch(getProduct())
-    console.log("stateData----",stateData);
     if (stateData.length) {
       setData(stateData.slice(1).reverse())
     }

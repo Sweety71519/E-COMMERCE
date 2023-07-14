@@ -7,43 +7,96 @@ import { getSubcategory } from '../../../store/ActionCreators/SubCategoryActionC
 import { getMaincategory } from '../../../store/ActionCreators/MainCategoryActionCreator'
 import { getBrand } from '../../../store/ActionCreators/BrandCategoryActionCreator'
 export default function AdminAddProduct() {
-    // let [name,setName] = useState("")
-    let name = useRef("")
+    let [data,setData] = useState({
+        name:"",
+        maincategory:"",
+        subcategory:"",
+        brand:"",
+        stock:"",
+        color:"",
+        size:"",
+        baseprice:"",
+        finalprice:"",
+        discount:"",
+        description:"",
+        pic1:"",
+        pic2:"",
+        pic3:"",
+        pic4:"",
+
+    })
     let dispatch = useDispatch()
     let navigate = useNavigate()
-    //let allStateData=useSelector((state)=>state.ProductStateData)
-    let allStateData = useSelector((state) => state.ProductStateData)
     let allMaincategoryStateData = useSelector((state) => state.MaincategoryStateData)
     let allSubcategoryStateData = useSelector((state) => state.SubcategoryStateData)
     let allBrandStateData = useSelector((state) => state.BrandStateData)
-    console.log("allStateData", allStateData);
 
     function getInputData(e) {
-        name.current = e.target.value
+       var {name,value}=e.target
+       setData((old)=>{
+        return {
+            ...old,
+            [name]:value
+           }
+
+       })
+    }
+
+      function getInputFile(e) {
+        var {name,files}=e.target
+        setData((old)=>{
+         return {
+             ...old,
+             [name]:files[0].name
+            }
+ 
+        })
     }
     function postData(e) {
         e.preventDefault()
-
-        let item = allStateData.slice(1).find((item) => item.name == name.current)
-        console.log("item", item);
-        if (item)
-            alert("Product Already Exist!!!")
-        else {
-            dispatch(createProduct({ name: name.current }))
-            navigate("/admin-product")
+        var fp=Math.round(data.baseprice-data.baseprice*data.discount/100)
+        var item={
+            name:data.name,
+            maincategory:data.maincategory,
+            subcategory:data.subcategory,
+            brand:data.brand,
+            size:data.size,
+            color:data.color,
+            stock:data.stock,
+            baseprice:data.baseprice,
+            finalprice:fp,
+            discount:data.discount,
+            description:data.description,
+            pic1:data.pic1,
+            pic2:data.pic2,
+            pic3:data.pic3,
+            pic4:data.pic4,
         }
+
+            dispatch(createProduct({ item }))
+            navigate("/admin-product")
 
     }
     function getAPIData() {
-        dispatch(getProduct())
         dispatch(getSubcategory())
         dispatch(getMaincategory())
         dispatch(getBrand())
+        if(allMaincategoryStateData.length && allSubcategoryStateData.length && allBrandStateData.length){
+            setData((old)=>{
+                return{
+                    ...old,
+                    ['maincategory']:allMaincategoryStateData.slice(1).reverse().name,
+                    ['subcategory']:allSubcategoryStateData.slice(1).reverse().name,
+                    ['brand']:allBrandStateData.slice(1).reverse().name
+
+                }
+            })
+        }
     }
     useEffect(() => {
         getAPIData()
 
-    }, [allStateData.length, allMaincategoryStateData.length, allSubcategoryStateData.length, allBrandStateData.length])
+    }, [allMaincategoryStateData.length, allSubcategoryStateData.length, allBrandStateData.length])
     return (
         <>
             <div className='container-fluid my-3'>
@@ -56,7 +109,7 @@ export default function AdminAddProduct() {
                         <form onSubmit={postData}>
                             <div className="md-3">
                                 <label>Name</label>
-                                {/* <input type="text" name="name" onChange={(e)=>setName(e.target.value)} value={name} placeholder="Enter Product Name" className='form-control'></input> */}
+                                {/* <input type="text" name="name" onChange={(e)=>setName(e.target.value)} value={name} onChange={getInputData} placeholder="Enter Product Name" className='form-control'></input> */}
                                 <input type="text" name="name" onChange={getInputData} placeholder="Enter Product Name" className='form-control'></input>
                             </div>
                             <div className="row">
@@ -65,7 +118,7 @@ export default function AdminAddProduct() {
                                     <select name='maincategory' onChange={getInputData} className='form-control'>
                                         {
                                             allMaincategoryStateData && allMaincategoryStateData.slice(1).reverse().map((item, index) => {
-                                                return <option value={item.name}>{item.name}</option>
+                                                return <option key={index} value={item.name}>{item.name}</option>
                                             })
                                         }
                                     </select>
@@ -75,7 +128,7 @@ export default function AdminAddProduct() {
                                     <select name='subcategory' onChange={getInputData} className='form-control'>
                                         {
                                             allSubcategoryStateData && allSubcategoryStateData.slice(1).reverse().map((item, index) => {
-                                                return <option value={item.name}>{item.name}</option>
+                                                return <option key={index} value={item.name}>{item.name}</option>
                                             })
                                         }
                                     </select>
@@ -85,7 +138,7 @@ export default function AdminAddProduct() {
                                     <select name='brand' onChange={getInputData} className='form-control'>
                                         {
                                             allBrandStateData && allBrandStateData.slice(1).reverse().map((item, index) => {
-                                                return <option value={item.name}>{item.name}</option>
+                                                return <option key={index} value={item.name}>{item.name}</option>
                                             })
                                         }
                                     </select>
@@ -94,8 +147,48 @@ export default function AdminAddProduct() {
                                     <label>Stock</label>
                                     <select name='stock' onChange={getInputData} className='form-control'>
                                             <option value='In Stock'>In Stock</option>
-                                            <option value='Out of Stock'>Out Of Stock</option>
+                                            <option  value='Out of Stock'>Out Of Stock</option>
                                     </select>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-md-6 mb-3">
+                                    <label>Color</label>
+                                    <input type='text' name='color' onChange={getInputData} placeholder='Enter color : ' className='form-control'></input>
+                                </div>
+                                 <div className="col-md-6 mb-3">
+                                    <label>Size</label>
+                                    <input type='text' name='size' onChange={getInputData} placeholder='Enter Size : ' className='form-control'></input>
+                                </div>
+                                 <div className="col-md-6 mb-3">
+                                    <label>Base Price</label>
+                                    <input type='number' name='baseprice' onChange={getInputData} placeholder='Enter Base Price : ' className='form-control'></input>
+                                </div>
+                                 <div className="col-md-6 mb-3">
+                                    <label>Discount</label>
+                                    <input type='number' name='discount' onChange={getInputData} placeholder='Enter Discount : ' className='form-control'></input>
+                                </div>
+                            </div>
+                            <div className="mb-3">
+                                <label>Description</label>
+                                <textarea name='description' rows='5' onChange={getInputData} placeholder='Description : '  className='form-control' value={data.description}></textarea>
+                            </div>
+                            <div className="row">
+                                <div className="col-md-6 mb-3">
+                                    <label>Pic1</label>
+                                    <input type='file' name='pic1' onChange={getInputFile} className='form-control'></input>
+                                </div>
+                                 <div className="col-md-6 mb-3">
+                                    <label>Pic2</label>
+                                    <input type='file' name='pic2' onChange={getInputFile} className='form-control'></input>
+                                </div>
+                                 <div className="col-md-6 mb-3">
+                                    <label>Pic3</label>
+                                    <input type='file' name='pic3' onChange={getInputFile} className='form-control'></input>
+                                </div>
+                                 <div className="col-md-6 mb-3">
+                                    <label>Pic4</label>
+                                    <input type='file' name='pic4' onChange={getInputFile} className='form-control'></input>
                                 </div>
                             </div>
                             <div className="mb-3 btn-group w-100">

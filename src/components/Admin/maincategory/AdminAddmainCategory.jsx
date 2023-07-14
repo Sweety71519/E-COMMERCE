@@ -11,7 +11,6 @@ export default function AdminAddmainCategory() {
     //let allStateData=useSelector((state)=>state.mainCategoryStateData)
     let allStateData = useSelector((state) => state.MaincategoryStateData)
 
-    console.log("allStateData",allStateData);
 
     function getInputData(e) {
         name.current=e.target.value
@@ -20,7 +19,7 @@ export default function AdminAddmainCategory() {
         e.preventDefault()
         
         let item=allStateData.slice(1).find((item)=>item.name==name.current)
-        console.log("item",item);
+
         if(item)
         alert("MainCategory Already Exist!!!")
         else{
