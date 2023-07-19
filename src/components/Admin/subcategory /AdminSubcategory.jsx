@@ -13,7 +13,7 @@ export default function AdminSubcategory() {
 
   function getAPIData() {
     dispatch(getSubcategory())
-    console.log("stateData----",stateData);
+   
     if (stateData.length) {
       setData(stateData.slice(1).reverse())
     }

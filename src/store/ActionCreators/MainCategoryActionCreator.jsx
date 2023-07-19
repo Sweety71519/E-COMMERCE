@@ -1,6 +1,6 @@
 import { ADD_MAINCATEGORY,DELETE_MAINCATEGORY,GET_MAINCATEGORY,UPDATE_MAINCATEGORY } from "../Contants"
 export function createMaincategory(data){
-    console.log("maincategory Action",data);
+   //"maincategory Action",data);
     return{
         type:ADD_MAINCATEGORY,
         payload:data

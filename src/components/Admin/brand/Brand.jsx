@@ -13,7 +13,7 @@ export default function AdminBrand() {
 
   function getAPIData() {
     dispatch(getBrand())
-    console.log("stateData----",stateData);
+   
     if (stateData.length) {
       setData(stateData.slice(1).reverse())
     }

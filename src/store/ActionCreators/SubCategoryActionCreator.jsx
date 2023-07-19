@@ -1,6 +1,6 @@
 import { ADD_SUBCATEGORY,DELETE_SUBCATEGORY,GET_SUBCATEGORY,UPDATE_SUBCATEGORY } from "../Contants"
 export function createSubcategory(data){
-    console.log("maincategory Action",data);
+   //"maincategory Action",data);
     return{
         type:ADD_SUBCATEGORY,
         payload:data

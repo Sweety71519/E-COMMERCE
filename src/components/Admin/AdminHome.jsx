@@ -12,7 +12,7 @@ export default function AdminHome() {
         <h5 className='bg-primary p-2 rounded text-light text-center'>Maincategory</h5>
         <div className="row mt-3">
           <div className="col-md-6">
-            <img src="/img/py.jpg" width="100%" height="375px" alt=''/>
+            <img src="/images/p24.jpg" width="100%" height="375px" alt=''/>
           </div>
           <div className="col-md-6">
             <table>

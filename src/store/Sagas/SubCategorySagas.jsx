@@ -3,14 +3,14 @@ import {put,takeEvery} from "redux-saga/effects"
 import { ADD_SUBCATEGORY,ADD_SUBCATEGORY_REDUCER,GET_SUBCATEGORY,GET_SUBCATEGORY_REDUCER,UPDATE_SUBCATEGORY,UPDATE_SUBCATEGORY_REDUCER,DELETE_SUBCATEGORY,DELETE_SUBCATEGORY_REDUCER } from "../Contants";
 
 function* createSaga(action){
-    console.log("maincategory Saga",action);
+   //"maincategory Saga",action);
     var response=yield createService(action)
    yield put({type:ADD_SUBCATEGORY_REDUCER,payload:response})
 }
 
 function* getSaga(action){
     var response=yield getService(action)
-    console.log("saga response ",response);
+   //"saga response ",response);
     yield  put({type:GET_SUBCATEGORY_REDUCER,payload:response})
 }
 

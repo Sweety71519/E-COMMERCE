@@ -1,5 +1,5 @@
 export async function createService(action) {
-    console.log("service req",action);
+   //"service req",action);
     var response = await fetch("http://localhost:8000/subcategory", {
         method: "post",
         headers: {

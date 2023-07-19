@@ -3,16 +3,16 @@ import {  ADD_MAINCATEGORY_REDUCER, GET_MAINCATEGORY_REDUCER, UPDATE_MAINCATEGOR
 
 export default function maincategoryReducer(state = [], action) {
     let newState, index;
-    console.log("reducer",action.type);
+   //"reducer",action.type);
     switch (action.type) {
         case ADD_MAINCATEGORY_REDUCER:
             newState = state
             newState.push(action.payload)
-            console.log("add_maincategory",newState);
+           //"add_maincategory",newState);
             return newState
 
         case GET_MAINCATEGORY_REDUCER:
-            console.log("add_maincategory",action.payload);
+           //"add_maincategory",action.payload);
 
             return action.payload
 

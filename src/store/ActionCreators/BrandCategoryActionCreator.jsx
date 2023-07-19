@@ -1,6 +1,6 @@
 import { ADD_BRAND,DELETE_BRAND,GET_BRAND,UPDATE_BRAND } from "../Contants"
 export function createBrand(data){
-    console.log("maincategory Action",data);
+   //"maincategory Action",data);
     return{
         type:ADD_BRAND,
         payload:data

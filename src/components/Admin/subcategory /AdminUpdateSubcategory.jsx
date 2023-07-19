@@ -11,7 +11,7 @@ export default function AdminUpdateSubcategory() {
     let allStateData = useSelector((state) => state.SubcategoryStateData)
 
 
-    console.log("allStateData",allStateData);
+   //"allStateData",allStateData);
 
     function getInputData(e) {
         setName(e.target.value)
@@ -32,7 +32,7 @@ export default function AdminUpdateSubcategory() {
         dispatch(getSubcategory())
         if(allStateData.length){
             let item=allStateData.find((item)=>item.id===Number(id))
-            console.log("item----2",item);
+           //"item----2",item);
             if(item)
             setName(item.name)
         }

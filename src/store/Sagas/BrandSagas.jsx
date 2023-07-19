@@ -3,14 +3,14 @@ import {put,takeEvery} from "redux-saga/effects"
 import { ADD_BRAND,ADD_BRAND_REDUCER,GET_BRAND,GET_BRAND_REDUCER,UPDATE_BRAND,UPDATE_BRAND_REDUCER,DELETE_BRAND,DELETE_BRAND_REDUCER } from "../Contants";
 
 function* createSaga(action){
-    console.log("maincategory Saga",action);
+   //"maincategory Saga",action);
     var response=yield createService(action)
    yield put({type:ADD_BRAND_REDUCER,payload:response})
 }
 
 function* getSaga(action){
     var response=yield getService(action)
-    console.log("saga response ",response);
+   //"saga response ",response);
     yield  put({type:GET_BRAND_REDUCER,payload:response})
 }
 

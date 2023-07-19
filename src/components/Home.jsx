@@ -1,7 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import OwlCarousel from 'react-owl-carousel';
+import {Link} from "react-router-dom";
+import { getProduct } from "../store/ActionCreators/ProductCategoryActionCreator"
+import { useDispatch, useSelector } from 'react-redux';
+
 
 export default function Home() {
+    var [product, setproduct] = useState([])
+    var stateData = useSelector((state) => state.ProductStateData)
+    var disptach = useDispatch()
+    function getAPIData() {
+      disptach(getProduct())
+      console.log(stateData);
+      if (stateData.length) {
+        setproduct(stateData.slice(1).reverse().slice(0,8))
+        console.log("data---", product);
+      }
+    }
+    useEffect(() => {
+      getAPIData()
+    }, [stateData.length])
     return (
         <>
              Categories Section Begin 
@@ -14,7 +32,7 @@ export default function Home() {
                                     <h1>Women’s fashion</h1>
                                     <p>Sitamet, consectetur adipiscing elit, sed do eiusmod tempor incidid-unt labore
                                         edolore magna aliquapendisse ultrices gravida.</p>
-                                    <a href="#">Shop now</a>
+                                    <Link to="#">Shop now</Link>
                                 </div>
                             </div>
                         </div>
@@ -25,7 +43,7 @@ export default function Home() {
                                         <div className="categories__text">
                                             <h4>Men’s fashion</h4>
                                             <p>358 items</p>
-                                            <a href="#">Shop now</a>
+                                            <Link to="#">Shop now</Link>
                                         </div>
                                     </div>
                                 </div>
@@ -34,7 +52,7 @@ export default function Home() {
                                         <div className="categories__text">
                                             <h4>Kid’s fashion</h4>
                                             <p>273 items</p>
-                                            <a href="#">Shop now</a>
+                                            <Link to="#">Shop now</Link>
                                         </div>
                                     </div>
                                 </div>
@@ -43,7 +61,7 @@ export default function Home() {
                                         <div className="categories__text">
                                             <h4>Cosmetics</h4>
                                             <p>159 items</p>
-                                            <a href="#">Shop now</a>
+                                            <Link to="#">Shop now</Link>
                                         </div>
                                     </div>
                                 </div>
@@ -52,7 +70,7 @@ export default function Home() {
                                         <div className="categories__text">
                                             <h4>Accessories</h4>
                                             <p>792 items</p>
-                                            <a href="#">Shop now</a>
+                                            <Link to="#">Shop now</Link>
                                         </div>
                                     </div>
                                 </div>
@@ -66,204 +84,37 @@ export default function Home() {
             {/*  Product Section Begin  */}
             <section className="product spad">
                 <div className="container">
-                    <div className="row">
-                        <div className="col-lg-4 col-md-4">
-                            <div className="section-title">
+                            <div className="section-title text-center">
                                 <h4>New product</h4>
                             </div>
-                        </div>
-                        <div className="col-lg-8 col-md-8">
-                            <ul className="filter__controls">
-                                <li className="active" data-filter="*">All</li>
-                                <li data-filter=".women">Women’s</li>
-                                <li data-filter=".men">Men’s</li>
-                                <li data-filter=".kid">Kid’s</li>
-                                <li data-filter=".accessories">Accessories</li>
-                                <li data-filter=".cosmetic">Cosmetics</li>
-                            </ul>
-                        </div>
-                    </div>
                     <div className="row property__gallery">
-                        <div className="col-lg-3 col-md-4 col-sm-6 mix women">
-                            <div className="product__item">
-                                <div className="product__item__pic set-bg" style={{ backgroundImage: 'url("img/product/product-1.jpg")' }}>
-                                    <div className="label new">New</div>
-                                    <ul className="product__hover">
-                                        <li><a href="img/product/product-1.jpg" className="image-popup"><span className="arrow_expand"></span></a></li>
-                                        <li><a href="#"><span className="icon_heart_alt"></span></a></li>
-                                        <li><a href="#"><span className="icon_bag_alt"></span></a></li>
-                                    </ul>
-                                </div>
-                                <div className="product__item__text">
-                                    <h6><a href="#">Buttons tweed blazer</a></h6>
-                                    <div className="rating">
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
+                        {
+                            product.map((item,index)=>{
+                                return <div key={index} className="col-lg-3 col-md-4 col-sm-6 mix women">
+                                <div className="product__item">
+                                    <div className="product__item__pic set-bg" style={{ backgroundImage: 'url("img/product/product-1.jpg")' }}>
+                                        <div className="label new">New</div>
+                                        <ul className="product__hover">
+                                            <li><Link to="img/product/product-1.jpg" className="image-popup"><span className="arrow_expand"></span></Link></li>
+                                            <li><Link to="#"><span className="icon_heart_alt"></span></Link></li>
+                                            <li><Link to="#"><span className="icon_bag_alt"></span></Link></li>
+                                        </ul>
                                     </div>
-                                    <div className="product__price">$ 59.0</div>
+                                    <div className="product__item__text">
+                                        <h6><Link to="#">Buttons tweed blazer</Link></h6>
+                                        <div className="rating">
+                                            <i className="fa fa-star"></i>
+                                            <i className="fa fa-star"></i>
+                                            <i className="fa fa-star"></i>
+                                            <i className="fa fa-star"></i>
+                                            <i className="fa fa-star"></i>
+                                        </div>
+                                        <div className="product__price">$ 59.0</div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="col-lg-3 col-md-4 col-sm-6 mix men">
-                            <div className="product__item">
-                                <div className="product__item__pic set-bg" style={{ backgroundImage: 'url("img/product/product-2.jpg")' }}>
-                                    <ul className="product__hover">
-                                        <li><a href="img/product/product-2.jpg" className="image-popup"><span className="arrow_expand"></span></a></li>
-                                        <li><a href="#"><span className="icon_heart_alt"></span></a></li>
-                                        <li><a href="#"><span className="icon_bag_alt"></span></a></li>
-                                    </ul>
-                                </div>
-                                <div className="product__item__text">
-                                    <h6><a href="#">Flowy striped skirt</a></h6>
-                                    <div className="rating">
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                    </div>
-                                    <div className="product__price">$ 49.0</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-4 col-sm-6 mix accessories">
-                            <div className="product__item">
-                                <div className="product__item__pic set-bg" style={{ backgroundImage: 'url("img/product/product-3.jpg")' }}>
-                                    <div className="label stockout">out of stock</div>
-                                    <ul className="product__hover">
-                                        <li><a href="img/product/product-3.jpg" className="image-popup"><span className="arrow_expand"></span></a></li>
-                                        <li><a href="#"><span className="icon_heart_alt"></span></a></li>
-                                        <li><a href="#"><span className="icon_bag_alt"></span></a></li>
-                                    </ul>
-                                </div>
-                                <div className="product__item__text">
-                                    <h6><a href="#">Cotton T-Shirt</a></h6>
-                                    <div className="rating">
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                    </div>
-                                    <div className="product__price">$ 59.0</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-4 col-sm-6 mix cosmetic">
-                            <div className="product__item">
-                                <div className="product__item__pic set-bg" style={{ backgroundImage: 'url("img/product/product-4.jpg")' }}>
-                                    <ul className="product__hover">
-                                        <li><a href="img/product/product-4.jpg" className="image-popup"><span className="arrow_expand"></span></a></li>
-                                        <li><a href="#"><span className="icon_heart_alt"></span></a></li>
-                                        <li><a href="#"><span className="icon_bag_alt"></span></a></li>
-                                    </ul>
-                                </div>
-                                <div className="product__item__text">
-                                    <h6><a href="#">Slim striped pocket shirt</a></h6>
-                                    <div className="rating">
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                    </div>
-                                    <div className="product__price">$ 59.0</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-4 col-sm-6 mix kid">
-                            <div className="product__item">
-                                <div className="product__item__pic set-bg" style={{ backgroundImage: 'url("img/product/product-5.jpg")' }}>
-                                    <ul className="product__hover">
-                                        <li><a href="img/product/product-5.jpg" className="image-popup"><span className="arrow_expand"></span></a></li>
-                                        <li><a href="#"><span className="icon_heart_alt"></span></a></li>
-                                        <li><a href="#"><span className="icon_bag_alt"></span></a></li>
-                                    </ul>
-                                </div>
-                                <div className="product__item__text">
-                                    <h6><a href="#">Fit micro corduroy shirt</a></h6>
-                                    <div className="rating">
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                    </div>
-                                    <div className="product__price">$ 59.0</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-4 col-sm-6 mix women men kid accessories cosmetic">
-                            <div className="product__item sale">
-                                <div className="product__item__pic set-bg" style={{ backgroundImage: 'url("img/product/product-6.jpg")' }}>
-                                    <div className="label sale">Sale</div>
-                                    <ul className="product__hover">
-                                        <li><a href="img/product/product-6.jpg" className="image-popup"><span className="arrow_expand"></span></a></li>
-                                        <li><a href="#"><span className="icon_heart_alt"></span></a></li>
-                                        <li><a href="#"><span className="icon_bag_alt"></span></a></li>
-                                    </ul>
-                                </div>
-                                <div className="product__item__text">
-                                    <h6><a href="#">Tropical Kimono</a></h6>
-                                    <div className="rating">
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                    </div>
-                                    <div className="product__price">$ 49.0 <span>$ 59.0</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-4 col-sm-6 mix women men kid accessories cosmetic">
-                            <div className="product__item">
-                                <div className="product__item__pic set-bg" style={{ backgroundImage: 'url("img/product/product-7.jpg")' }}>
-                                    <ul className="product__hover">
-                                        <li><a href="img/product/product-7.jpg" className="image-popup"><span className="arrow_expand"></span></a></li>
-                                        <li><a href="#"><span className="icon_heart_alt"></span></a></li>
-                                        <li><a href="#"><span className="icon_bag_alt"></span></a></li>
-                                    </ul>
-                                </div>
-                                <div className="product__item__text">
-                                    <h6><a href="#">Contrasting sunglasses</a></h6>
-                                    <div className="rating">
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                    </div>
-                                    <div className="product__price">$ 59.0</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-4 col-sm-6 mix women men kid accessories cosmetic">
-                            <div className="product__item sale">
-                                <div className="product__item__pic set-bg" style={{ backgroundImage: 'url("img/product/product-8.jpg")' }}>
-                                    <div className="label">Sale</div>
-                                    <ul className="product__hover">
-                                        <li><a href="img/product/product-8.jpg" className="image-popup"><span className="arrow_expand"></span></a></li>
-                                        <li><a href="#"><span className="icon_heart_alt"></span></a></li>
-                                        <li><a href="#"><span className="icon_bag_alt"></span></a></li>
-                                    </ul>
-                                </div>
-                                <div className="product__item__text">
-                                    <h6><a href="#">Water resistant backpack</a></h6>
-                                    <div className="rating">
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                    </div>
-                                    <div className="product__price">$ 49.0 <span>$ 59.0</span></div>
-                                </div>
-                            </div>
-                        </div>
+                            })
+                        }
                     </div>
                 </div>
             </section>
@@ -279,21 +130,21 @@ export default function Home() {
                                     <div className="banner__text">
                                         <span>The Chloe Collection</span>
                                         <h1>The Project Jacket</h1>
-                                        <a href="#">Shop now</a>
+                                        <Link to="#">Shop now</Link>
                                     </div>
                                 </div>
                                 <div className="banner__item text-center">
                                     <div className="banner__text">
                                         <span>The Chloe Collection</span>
                                         <h1>Shop Now</h1>
-                                        <a href="#">Shop now</a>
+                                        <Link to="#">Shop now</Link>
                                     </div>
                                 </div>
                                 <div className="banner__item text-center">
                                     <div className="banner__text">
                                         <span>The Chloe Collection</span>
                                         <h1>Hurry Hp!!!</h1>
-                                        <a href="#">Shop now</a>
+                                        <Link to="#">Shop now</Link>
                                     </div>
                                 </div>
                             </OwlCarousel>
@@ -511,7 +362,7 @@ export default function Home() {
                                 <p>Sec</p>
                             </div>
                         </div>
-                        <a href="#">Shop now</a>
+                        <Link to="#">Shop now</Link>
                     </div>
                 </div>
             </div>

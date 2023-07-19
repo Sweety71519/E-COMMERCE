@@ -3,16 +3,16 @@ import {  ADD_BRAND_REDUCER, GET_BRAND_REDUCER, UPDATE_BRAND_REDUCER, DELETE_BRA
 
 export default function BrandReducer(state = [], action) {
     let newState, index;
-    console.log("reducer",action.type);
+   //"reducer",action.type);
     switch (action.type) {
         case ADD_BRAND_REDUCER:
             newState = state
             newState.push(action.payload)
-            console.log("add_BRAND",newState);
+           //"add_BRAND",newState);
             return newState
 
         case GET_BRAND_REDUCER:
-            console.log("add_BRAND",action.payload);
+           //"add_BRAND",action.payload);
 
             return action.payload
 

@@ -1,6 +1,6 @@
 import { ADD_PRODUCT,DELETE_PRODUCT,GET_PRODUCT,UPDATE_PRODUCT } from "../Contants"
 export function createProduct(data){
-    console.log("maincategory Action",data);
+   //"maincategory Action",data);
     return{
         type:ADD_PRODUCT,
         payload:data
