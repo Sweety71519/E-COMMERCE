@@ -29,11 +29,11 @@ export default function Contact() {
                                     <ul>
                                         <li>
                                             <h6><i className="fa fa-map-marker"></i> Address</h6>
-                                            <p>160 Pennsylvania Ave NW, Washington, Castle, PA 16101-5161</p>
+                                            <p>Noida,Sector 12-22,UP,India</p>
                                         </li>
                                         <li>
                                             <h6><i className="fa fa-phone"></i> Phone</h6>
-                                            <p><span>125-711-811</span><span>125-668-886</span></p>
+                                            <p><span>125-711-811</span></p>
                                         </li>
                                         <li>
                                             <h6><i className="fa fa-headphones"></i> Support</h6>
@@ -55,7 +55,9 @@ export default function Contact() {
                         </div>
                         <div className="col-lg-6 col-md-6">
                             <div className="contact__map">
-                                <div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=a-43%20sector%2016%20noda&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div></div>
+                            <div class="mapouter">
+                                <div class="gmap_canvas"><iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=noida sector 12-22 ,UP,india&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://connectionsgame.org/">Connections Game</a></div>
+                                </div>
                             </div>
                         </div>
                     </div>
