@@ -44,7 +44,7 @@ export default function App() {
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/shop/:mc/:sc/:br' element={<Shop />} />
-                <Route path='/single-product-page' element={<SingleProduct />} />
+                <Route path='/single-product/:id' element={<SingleProduct />} />
                 <Route path='/cart' element={<Cart />} />
                 <Route path='/checkout' element={<Checkout />} />
                 <Route path='/contact' element={<Contact />} />
