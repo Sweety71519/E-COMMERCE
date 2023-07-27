@@ -1,7 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function Navbar() {
+   var navigate=useNavigate()
+    function logout(){
+        localStorage.clear()
+        navigate("/login")
+    }
     return (
         <>
             {/* Page Preloder */}
@@ -60,11 +65,11 @@ export default function Navbar() {
                                         <ul className="dropdown">
                                             <li><Link to="/profile">Profile</Link></li>
                                             <li><Link to="/cart">Cart</Link></li>
-                                           <button className='btn text-light p-3 btn-sm'>Logout</button>
-                                        </ul>
+                                           <button className='btn text-light p-3 btn-sm' onClick={logout}>Logout</button>
+                                        </ul>    
                                     </li>:
                                     <li >
-                                        <Link to="/login"></Link>
+                                        <Link to="/login">login</Link>
                                     </li>
                                     }
                                 </ul>
