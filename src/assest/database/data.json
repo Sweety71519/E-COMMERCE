@@ -105,7 +105,7 @@
       "name": "Simple Man Jeans ",
       "maincategory": "Male",
       "subcategory": "Jeans",
-      "brand": "Tommy Hilfiger",
+      "brand": "Mufti",
       "color": "black",
       "size": "36",
       "description": "This is Sample Prodoct",
@@ -119,6 +119,7 @@
       "pic4": "p11.jpg"
     },
     {
+      "id": 4,
       "name": "jeans kids slim Fit",
       "maincategory": "Kids",
       "subcategory": "Jeans",
@@ -133,8 +134,7 @@
       "pic1": "p64.jpg",
       "pic2": "p58.jpg",
       "pic3": "p20.jpg",
-      "pic4": "p65.jpg",
-      "id": 4
+      "pic4": "p65.jpg"
     },
     {
       "name": "T-shirt for women",
@@ -447,14 +447,14 @@
       "name": "Male jeans Adidas",
       "maincategory": "Male",
       "subcategory": "Jeans",
-      "brand": "Adidas",
+      "brand": "Mufti",
       "color": "Black",
       "size": "34",
+      "description": "This is Sample Product",
+      "stock": "In Stack",
       "baseprice": "4500",
       "discount": "45",
       "finalprice": 2475,
-      "stock": "In Stack",
-      "description": "This is Sample Product",
       "pic1": "p7.jpg",
       "pic2": "p5.jpg",
       "pic3": "p1.jpg",
