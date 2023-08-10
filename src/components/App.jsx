@@ -15,6 +15,7 @@ import Contact from './Contact';
 import AdminHome from './Admin/AdminHome';
 import Login from './Login';
 import SignUp from './SignUp';
+import Profile from './Profile';
 import UpdateUserProfile from './UpdateUserProfile';
 
 //Maincategory
@@ -35,6 +36,7 @@ import AdminUpdateProduct from './Admin/product/AdminUpdateProduct';
 import AdminBrand from './Admin/brand/Brand';
 import AdminAddBrand from './Admin/brand/AddBrand';
 import AdminUpdateBrand from './Admin/brand/UpdateBrandDetails';
+import Confirmation from './Confirmation';
 
 
 export default function App() {
@@ -51,7 +53,9 @@ export default function App() {
                 <Route path='/admin' element={<AdminHome />} />
                 <Route path='/login' element={<Login />}/>
                 <Route path='/singup' element={<SignUp />}/>
-                <Route path='/update-buyer-profile' element={<UpdateUserProfile />}/>
+                <Route path='/profile' element={<Profile />}/>
+                <Route path='/confirmation' element={<Confirmation />}/>
+                <Route path='/update-profile' element={<UpdateUserProfile />}/>
 
 
                 <Route path='/admin-maincategory' element={<AdminMainCategory />} />

@@ -3,6 +3,14 @@ import subcategorySaga from "./SubCategorySagas"
 import brandSaga from "./BrandSagas"
 import productSaga from "./ProductSagas"
 import { all } from "redux-saga/effects"
+import cartSaga from "./CartSagas"
+import checkOutSaga from "./CheckOutSagas"
+import newslatterSaga from "./NewsLatterSagas"
+
+import wishlistSaga from "./WishListSagas"
+
+import contactSaga from "./ContactSagas"
+
 
 
 export default function* RootSaga() {
@@ -10,7 +18,11 @@ export default function* RootSaga() {
         maincategorySaga(),
         subcategorySaga(),
         brandSaga(),
-        productSaga()
-
+        productSaga(),
+        cartSaga(),
+        checkOutSaga(),
+        newslatterSaga(),
+        wishlistSaga(),
+        contactSaga()
     ])
 }

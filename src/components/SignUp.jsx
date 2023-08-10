@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function SignUp() {
+    var navigate=useNavigate()
     var [user, setUser] = useState({
         name: "",
         username: "",
@@ -10,7 +12,8 @@ export default function SignUp() {
         cpassword: ""
     })
     function getInputData(e) {
-        var { name, value } = e.target.value
+        console.log("user",e.target );
+        var { name, value } = e.target
         setUser((old) => {
             return {
                 ...old,
@@ -22,26 +25,47 @@ export default function SignUp() {
     }
     async function postData(e) {
         e.preventDefault()
-        // if (data.password === data.cpassword) {
-        //     var response = await fetch("/user", {
-        //         method: "get",
-        //         headers: {
-        //             "content-type": "application/json"
-        //         }
-        //     })
-        //     response = await response.json()
-        //     // var item=response.slice(1).find((x) => x.username)===data.username{
-        //     //     Alert("User Name Already Exist.")
-        //     // }
-        //     // else{
-
-        //     // }
-
-        // }
-
-
-
+        if (user.password === user.cpassword) {
+            var response = await fetch("http://localhost:8000/user", {
+                method: "get",
+                headers: {
+                    "content-type": "application/json"
+                }
+            })
+            response = await response.json()
+            var item = response.slice(1).find((x) => x.username === user.username)
+            if (item) {
+                alert("User Name Already Taken!!!.")
+            }
+            else {
+                item = {
+                    name: user.name,
+                    username: user.username,
+                    email: user.email,
+                    phone: user.phone,
+                    password: user.password,
+                    role: "Buyer"
+                }
+                response=await fetch("http://localhost:8000/user",{
+                    method:"post",
+                    headers:{
+                        "content-type":"application/json"
+                    },
+                    body:JSON.stringify(item)
+                })
+                response = await response.json()
+                navigate("/login")
+            }
+        }
+        else {
+            alert("Passwrd and Confirm Password does not matched!!!")
+        }
     }
+
+
+
+
+
     return (
         <div className="container-fluid my-5">
             <div className="w-100">
@@ -51,7 +75,7 @@ export default function SignUp() {
                         <div className="row">
                             <div className="col-md-6 mb-3">
                                 <label>Full Name</label>
-                                <input type="text" name='name' required onChange={getInputData} placeholder='Enter Full Name:' className='form-control'></input>
+                                <input type="text" name='name'  required onChange={getInputData} placeholder='Enter Full Name:' className='form-control'></input>
                             </div>
                             <div className="col-md-6 mb-3">
                                 <label>User Name</label>
@@ -59,7 +83,7 @@ export default function SignUp() {
                             </div>
                             <div className="col-md-6 mb-3">
                                 <label>Email</label>
-                                <input type="email" name='email' required onChange={getInputData} placeholder='Enter Email Address :' className='form-control'></input>
+                                <input type="email" name='email'required onChange={getInputData} placeholder='Enter Email Address :' className='form-control'></input>
                             </div>
                             <div className="col-md-6 mb-3">
                                 <label>Phone</label>
@@ -74,10 +98,11 @@ export default function SignUp() {
                                 <input type="password" name='cpassword' required onChange={getInputData} placeholder='Enter Confirm Password :' className='form-control'></input>
                             </div>
                             <div className='mb-3 w-100'>
-                                <button type='submit' className='btn btn-secondary w-50 m-auto'>SignUp</button>
+                                <button type='submit' className='btn btn-secondary w-100'>SignUp</button>
                             </div>
                         </div>
                     </form>
+                    <Link to="/login">Already have an Acccount ? Login </Link>
                 </div>
             </div>
         </div>

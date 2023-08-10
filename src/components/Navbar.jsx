@@ -9,11 +9,6 @@ export default function Navbar() {
     }
     return (
         <>
-            {/* Page Preloder */}
-            {/* <div id="preloder">
-                <div className="loader"></div>
-            </div> */}
-
             {/*  Offcanvas Menu Begin */}
             <div className="offcanvas-menu-overlay"></div>
             <div className="offcanvas-menu-wrapper">
@@ -61,10 +56,15 @@ export default function Navbar() {
                                 <ul>
                                     {
                                         localStorage.getItem("login")?
-                                        <li className='ml-5'><Link to="#">Sweety Sharma</Link>
+                                        <li className='ml-5'><Link to="#">{localStorage.getItem("name")}</Link>
                                         <ul className="dropdown">
+                                          {
+                                            localStorage.getItem("role")==="Buyer"?
+                                            <>
                                             <li><Link to="/profile">Profile</Link></li>
                                             <li><Link to="/cart">Cart</Link></li>
+                                            </>:<li><Link to="/admin">Profile</Link></li>
+                                          }
                                            <button className='btn text-light p-3 btn-sm' onClick={logout}>Logout</button>
                                         </ul>    
                                     </li>:

@@ -464,16 +464,135 @@
   "cart": [
     {
       "id": 0
+    },
+    {
+      "userid": "1",
+      "productid": 16,
+      "name": "Male jeans Adidas",
+      "brand": "Mufti",
+      "color": "Black",
+      "size": "34",
+      "price": 2475,
+      "qty": 3,
+      "total": 7425,
+      "pic": "p7.jpg",
+      "id": 1
+    },
+    {
+      "userid": "2",
+      "productid": 15,
+      "name": "Male Jeans Slim  Fit",
+      "brand": "Mufti",
+      "color": "Black",
+      "size": "36",
+      "price": 1716,
+      "qty": 3,
+      "total": 5148,
+      "pic": "p16.jpg",
+      "id": 2
     }
   ],
   "wishlist": [
     {
       "id": 0
+    },
+    {
+      "userid": null,
+      "productid": 15,
+      "name": "Male Jeans Slim  Fit",
+      "brand": "Mufti",
+      "color": "Black",
+      "size": "36",
+      "price": 1716,
+      "pic": "p16.jpg",
+      "id": 3
+    },
+    {
+      "userid": "5",
+      "productid": 3,
+      "name": "Simple Man Jeans ",
+      "brand": "Mufti",
+      "color": "black",
+      "size": "36",
+      "price": 3860,
+      "pic": "p47.jpg",
+      "id": 5
+    },
+    {
+      "userid": "5",
+      "productid": 6,
+      "name": "Shirt for man",
+      "brand": "Mufti",
+      "color": "red",
+      "size": "34",
+      "price": 3211,
+      "pic": "p30.jpg",
+      "id": 6
+    },
+    {
+      "userid": "5",
+      "productid": 14,
+      "name": "Kids Jeans Tommy Hilfiger",
+      "brand": "Tommy Hilfiger",
+      "color": "Black",
+      "size": "26",
+      "price": 2500,
+      "pic": "p43.jpg",
+      "id": 7
+    },
+    {
+      "userid": "5",
+      "productid": 2,
+      "name": "New T-shirt for man",
+      "brand": "Mufti",
+      "color": "black",
+      "size": "34",
+      "price": 4511,
+      "pic": "p3.jpg",
+      "id": 8
     }
   ],
   "checkout": [
     {
       "id": 0
+    },
+    {
+      "userid": "5",
+      "paymentstatus": "Pending",
+      "orderStatus": "Order is Placeded",
+      "subtotal": 75451,
+      "shipping": 0,
+      "total": 75451,
+      "date": "2023-08-10T05:46:59.120Z",
+      "products": [
+        {
+          "userid": "5",
+          "productid": 13,
+          "name": "Female Shirt Gucci",
+          "brand": "Gucci",
+          "color": "White",
+          "size": "M",
+          "price": 6439,
+          "qty": 9,
+          "total": 57951,
+          "pic": "p72.jpg",
+          "id": 4
+        },
+        {
+          "userid": "5",
+          "productid": 14,
+          "name": "Kids Jeans Tommy Hilfiger",
+          "brand": "Tommy Hilfiger",
+          "color": "Black",
+          "size": "26",
+          "price": 2500,
+          "qty": 7,
+          "total": 17500,
+          "pic": "p43.jpg",
+          "id": 3
+        }
+      ],
+      "id": 1
     }
   ],
   "newsletter": [
@@ -489,6 +608,36 @@
   "user": [
     {
       "id": 0
+    },
+    {
+      "name": "sweety sharma",
+      "username": "sweety123",
+      "email": "sweety71519@gmail.com",
+      "phone": "6233456764",
+      "password": "123",
+      "role": "Admin",
+      "id": 1,
+      "pic": "p8.jpg"
+    },
+    {
+      "name": "sweety kumari",
+      "username": "sweetySk",
+      "email": "sweety71519@gmail.com",
+      "phone": "6233456764",
+      "password": "123",
+      "role": "Buyer",
+      "id": 5,
+      "address": "z-99,noida,sector 12-22,up",
+      "pin": "123456",
+      "city": "noida",
+      "state": "UP",
+      "pic": "p23.jpg"
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
     }
   ]
 }
