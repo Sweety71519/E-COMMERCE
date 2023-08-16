@@ -73,7 +73,9 @@ export default function Cart() {
 
             {/*  Shop Cart Section Begin */}
             <section className="shop-cart spad">
-                <div className="container">
+                {
+                    cart.length?
+                    <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="shop__cart__table">
@@ -137,6 +139,12 @@ export default function Cart() {
                         </div>
                     </div>
                 </div>
+                :
+                <div className='text-center'>
+                <p>Your Cart is Empty !!!</p>
+                <Link to="/shop/All/All/All/" className='btn btn-primary'>Shop</Link>
+                </div>
+                }
             </section>
             {/*  Shop Cart Section End */}
         </>

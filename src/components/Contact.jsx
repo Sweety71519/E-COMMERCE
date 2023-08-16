@@ -1,6 +1,42 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import {createContact} from '../store/ActionCreators/ContactActionCreator'
 
 export default function Contact() {
+    var [data,setData]=useState({
+        name:"",
+        email:"",
+        phone:"",
+        subject:"",
+        message:"",
+        status:"Active"
+    })
+    var dispatch=useDispatch()
+    function getInputData(e){
+        var {name,value}=e.target 
+        setData((old)=>{
+            return{
+                ...old,
+                [name]:value
+            }
+
+        })
+
+    }
+    function postData(e){
+     e.preventDefault()
+     var date=new Date()
+     dispatch(createContact({...data,date:date.toLocaleDateString()}))
+     alert("Thanks to Shear Your Query With Us!!! Our Team Will Contact You Soon")
+     setData({
+        name:"",
+        email:"",
+        phone:"",
+        subject:"",
+        message:"",
+        status:"Active"
+     })
+    }
     return (
         <>
             {/* <!-- Breadcrumb Begin --> */}
@@ -29,25 +65,26 @@ export default function Contact() {
                                     <ul>
                                         <li>
                                             <h6><i className="fa fa-map-marker"></i> Address</h6>
-                                            <p>Noida,Sector 12-22,UP,India</p>
+                                            <p>Sector 12-22,Noida,UP,India</p>
                                         </li>
                                         <li>
                                             <h6><i className="fa fa-phone"></i> Phone</h6>
-                                            <p><span>125-711-811</span></p>
+                                            <p><span><a href="tel:8969273127" className='text-dark'>8969273127</a></span></p>
                                         </li>
                                         <li>
                                             <h6><i className="fa fa-headphones"></i> Support</h6>
-                                            <p>Support.photography@gmail.com</p>
+                                            <p><span><a href="mailto:sweety71519@gmail.com" className='text-dark'>sweety71519@gmail.com</a></span></p>
                                         </li>
                                     </ul>
                                 </div>
                                 <div className="contact__form">
                                     <h5>SEND MESSAGE</h5>
-                                    <form action="#">
-                                        <input type="text" placeholder="Name" />
-                                        <input type="text" placeholder="Email" />
-                                        <input type="text" placeholder="Website" />
-                                        <textarea placeholder="Message"></textarea>
+                                    <form onSubmit={postData}>
+                                        <input type="text" name="name"  value={data.name} onChange={getInputData} placeholder="Name" />
+                                        <input type="text" name="email" value={data.email} onChange={getInputData} placeholder="Email" />
+                                        <input type="text" name="phone" value={data.phone} onChange={getInputData} placeholder="Phone" />
+                                        <input type="text" name="subject" value={data.subject} onChange={getInputData} placeholder="Subject" />
+                                        <textarea value={data.message} name="message" onChange={getInputData} placeholder="Message"></textarea>
                                         <button type="submit" className="site-btn">Send Message</button>
                                     </form>
                                 </div>
@@ -55,8 +92,12 @@ export default function Contact() {
                         </div>
                         <div className="col-lg-6 col-md-6">
                             <div className="contact__map">
-                            <div class="mapouter">
-                                <div class="gmap_canvas"><iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=noida sector 12-22 ,UP,india&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://connectionsgame.org/">Connections Game</a></div>
+                                <div className="mapouter">
+                                    <div className="gmap_canvas">
+                                        <div className="mapouter"><div className="gmap_canvas">
+                                            <iframe height='500' width='600' className="gmap_iframe" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=sector 12-22 noida,UP,india&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+                                            </iframe></div></div>
+                                        </div>
                                 </div>
                             </div>
                         </div>

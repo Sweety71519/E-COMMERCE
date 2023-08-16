@@ -1,6 +1,37 @@
-import React from 'react'
+import React, { useState,useEffect } from 'react'
+import { useSelector,useDispatch } from 'react-redux'
+import {createNewslatter,getNewslatter} from '../store/ActionCreators/NewsLatterActionCreator'
 
 export default function Footer() {
+    var [email,setEmail]=useState("")
+    var dispatch = useDispatch()
+    var allNewsLatterData = useSelector((state) => state.NewsLatterStateData)
+    console.log("allNewsLatterData",allNewsLatterData.length);
+    function postData(e){
+        console.log("call function");
+           e.preventDefault()
+           var item=allNewsLatterData.slice(1).find((x) => x.email === email)
+           if(item)
+           alert("Your Id is Already Subscribe !!!")
+           else{
+           dispatch(createNewslatter({email:email}))
+           console.log("newslatter---2");
+           alert("Thanks For Subscribe Our Team Will Contact You Soon!!")
+           setEmail("")
+        }
+
+    }
+
+    
+    function getAPIData(){
+        dispatch(getNewslatter())
+
+    }
+
+
+    useEffect(() => {
+        getAPIData()
+    },[allNewsLatterData?.length])
     return (
         <>
             <hr />
@@ -31,8 +62,8 @@ export default function Footer() {
                         <div className="col-lg-6 col-md-8 col-sm-8">
                             <div className="footer__newslatter">
                                 <h6>NEWSLETTER</h6>
-                                <form action="#">
-                                    <input type="text" placeholder="Email" />
+                                <form onSubmit={postData}>
+                                    <input type="email" onChange={(e)=>setEmail(e.target.value)} placeholder="Email" value={email} />
                                     <button type="submit" className="site-btn">Subscribe</button>
                                 </form>
                                 <div className="footer__social">

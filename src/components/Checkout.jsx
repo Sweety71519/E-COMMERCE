@@ -17,6 +17,7 @@ export default function Checkout() {
 
     let allCartStateData = useSelector((state) => state.CartStateData)
     function placeOrder(){
+        var date=new Date()
         var item={
             userid:localStorage.getItem("userid"),
             paymentmode:mode,
@@ -25,7 +26,7 @@ export default function Checkout() {
             subtotal:subtotal,
             shipping:shipping,
             total:total,
-            date:new Date(),
+            date:date.toLocaleDateString(),
             products:cart
             
         }

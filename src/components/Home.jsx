@@ -21,7 +21,6 @@ export default function Home() {
     }, [stateData.length])
     return (
         <>
-            Categories Section Begin
             <section className="categories">
                 <div className="container-fluid">
                     <div className="row">

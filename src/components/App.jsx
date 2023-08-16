@@ -37,6 +37,10 @@ import AdminBrand from './Admin/brand/Brand';
 import AdminAddBrand from './Admin/brand/AddBrand';
 import AdminUpdateBrand from './Admin/brand/UpdateBrandDetails';
 import Confirmation from './Confirmation';
+import AdminUser from './Admin/user/AdminUser';
+import AdminNewslatter from './Admin/NewsLatters/AdminNewslatter';
+import AdminContact from './Admin/contact/AdminContact';
+import AdminSingleContact from './Admin/contact/SingleContact';
 
 
 export default function App() {
@@ -73,6 +77,14 @@ export default function App() {
                 <Route path='/admin-product' element={<AdminProduct />} />
                 <Route path='/admin-add-product' element={<AdminAddProduct />}/>
                 <Route path='/admin-update-product/:id' element={<AdminUpdateProduct />}/>
+
+                <Route path='/admin-user' element={<AdminUser />} />
+                <Route path='/admin-newsletter' element={<AdminNewslatter />} />
+                <Route path='/admin-contact' element={<AdminContact />} />
+                <Route path='/admin-single-contact/:id' element={<AdminSingleContact />} />
+
+
+
             </Routes>
             <Footer />
         </BrowserRouter>

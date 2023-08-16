@@ -1,6 +1,6 @@
 export async function createService(action) {
    //"service req",action);
-    var response = await fetch("http://localhost:8000/newlatter", {
+    var response = await fetch("http://localhost:8000/newsletter", {
         method: "post",
         headers: {
             "content-type": "application/json"
@@ -14,7 +14,7 @@ export async function createService(action) {
 }
 
 export async function getService() {
-    var response = await fetch("http://localhost:8000/newlatter", {
+    var response = await fetch("http://localhost:8000/newsletter", {
         method: "get",
         headers: {
             "content-type": "application/json"
@@ -26,7 +26,7 @@ export async function getService() {
 }
 
 export async function deleteService(action) {
-    var response = await fetch("http://localhost:8000/newlatter/"+action.payload.id, {
+    var response = await fetch("http://localhost:8000/newsletter/"+action.payload.id, {
         method: "delete",
         headers: {
             "content-type": "application/json"

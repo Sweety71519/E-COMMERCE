@@ -22,7 +22,7 @@ export default function ContactReducer(state = [], action) {
         case UPDATE_CONTACT_REDUCER:
             newState = state
             index = state.findIndex(item => item.id === action.payload.id)
-            newState[index].name = action.payload.name
+            newState[index].status = action.payload.status
             return newState
 
         case DELETE_CONTACT_REDUCER:

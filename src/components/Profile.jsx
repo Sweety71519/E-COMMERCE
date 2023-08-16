@@ -144,10 +144,10 @@ export default function Profile() {
             {
                 allCheckOutStateData.length ?
                     <>
-                    <h5 className='text-center my-4'> Order History Section</h5>
+                        <h5 className='text-center my-4'> Order History Section</h5>
                         {
                             checkout.map((item, index) => {
-                                return <div className='row' key={index}>
+                                return <div className='row mb-3' key={index}>
                                     <div className="col-md-4 cart__total__procced">
                                         <div className="table-responsive">
                                             <thead>
@@ -216,8 +216,6 @@ export default function Profile() {
                                         </div>
 
                                     </div>
-
-
                                 </div>
                             })
                         }

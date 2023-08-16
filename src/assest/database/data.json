@@ -593,16 +593,80 @@
         }
       ],
       "id": 1
+    },
+    {
+      "userid": "5",
+      "paymentstatus": "Pending",
+      "orderStatus": "Order is Placeded",
+      "subtotal": 2475,
+      "shipping": 0,
+      "total": 2475,
+      "date": "2023-08-10T12:09:10.197Z",
+      "products": [
+        {
+          "userid": "5",
+          "productid": 16,
+          "name": "Male jeans Adidas",
+          "brand": "Mufti",
+          "color": "Black",
+          "size": "34",
+          "price": 2475,
+          "qty": 1,
+          "total": 2475,
+          "pic": "p7.jpg",
+          "id": 3
+        }
+      ],
+      "id": 2
+    },
+    {
+      "userid": "5",
+      "paymentstatus": "Pending",
+      "orderStatus": "Order is Placeded",
+      "subtotal": 2500,
+      "shipping": 0,
+      "total": 2500,
+      "date": "15/08/2023",
+      "products": [
+        {
+          "userid": "5",
+          "productid": 14,
+          "name": "Kids Jeans Tommy Hilfiger",
+          "brand": "Tommy Hilfiger",
+          "color": "Black",
+          "size": "26",
+          "price": 2500,
+          "qty": 1,
+          "total": 2500,
+          "pic": "p43.jpg",
+          "id": 3
+        }
+      ],
+      "id": 3
     }
   ],
   "newsletter": [
     {
       "id": 0
+    },
+    {
+      "email": "s@gmail.com",
+      "id": 1
     }
   ],
   "contact": [
     {
       "id": 0
+    },
+    {
+      "name": "sweety kumari",
+      "email": "sweety71519@gmail.com",
+      "phone": "6233456764",
+      "subject": "Test Data",
+      "message": "Test Data\nTest Data\nTest Data\nTest Data\nTest Data\nTest Data",
+      "status": "Done",
+      "date": "15/08/2023",
+      "id": 1
     }
   ],
   "user": [
